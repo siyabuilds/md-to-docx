@@ -2,6 +2,10 @@
 
 Convert markdown files in a folder to `.docx` using `pandoc`.
 
+## Prerequisite
+
+- [pandoc](https://pandoc.org/) must be installed and available in your `PATH`.
+
 ## Usage
 
 ```bash

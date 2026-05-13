@@ -17,7 +17,10 @@ found=0
 while IFS= read -r -d '' md_file; do
   found=1
   output_file="${md_file%.*}.docx"
-  pandoc "$md_file" -o "$output_file"
+  if ! pandoc "$md_file" -o "$output_file"; then
+    echo "Error: failed to convert '$md_file'." >&2
+    exit 1
+  fi
   echo "Converted: $md_file -> $output_file"
 done < <(find "$TARGET_DIR" -maxdepth 1 -type f \( -iname "*.md" -o -iname "*.markdown" \) -print0)
 
