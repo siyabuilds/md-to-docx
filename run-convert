@@ -17,7 +17,7 @@ found=0
 while IFS= read -r -d '' md_file; do
   found=1
   output_file="${md_file%.*}.docx"
-  if ! pandoc "$md_file" -o "$output_file"; then
+  if ! pandoc "$md_file" -o "$output_file" -V mainfont="Poppins"; then
     echo "Error: failed to convert '$md_file'." >&2
     exit 1
   fi
