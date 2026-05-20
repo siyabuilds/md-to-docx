@@ -3,6 +3,19 @@
 # Define the target directory
 TARGET_DIR="$HOME/.local/bin"
 
+OVERRIDE=0
+while getopts "uo" opt; do
+  case $opt in
+    u|o) OVERRIDE=1 ;;
+    *) echo "Usage: $0 [-u]" >&2; exit 1 ;;
+  esac
+done
+
+if [[ -f "$TARGET_DIR/run-convert" && $OVERRIDE -eq 0 ]]; then
+    echo "Error: run-convert is already installed. Use -u to update/override." >&2
+    exit 1
+fi
+
 # Create the directory if it doesn't exist
 mkdir -p "$TARGET_DIR"
 

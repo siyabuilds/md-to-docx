@@ -15,6 +15,12 @@ chmod +x install.sh
 ./install.sh
 ```
 
+If you already have `run-convert` installed and need to update it with latest changes, you can use the `-u` override flag:
+
+```bash
+./install.sh -u
+```
+
 The script will copy `run-convert` to `~/.local/bin` and automatically add that directory to your `$PATH` (in `.bashrc` and `.zshrc`). 
 After installation, reload your terminal configuration (e.g., run `source ~/.bashrc` or `source ~/.zshrc`) to apply the changes. 
 
