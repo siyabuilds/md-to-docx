@@ -27,7 +27,14 @@ After installation, reload your terminal configuration (e.g., run `source ~/.bas
 ## Usage
 
 ```bash
-./run-convert .
+run-convert [target_directory]
 ```
 
-This converts all `.md` and `.markdown` files in the target folder (non-recursive) into `.docx` files with the same base filename.
+If no `target_directory` is specified, it defaults to the current directory (`.`).
+
+### Features
+
+- **Recursive Processing**: Finds all `.md` and `.markdown` files (case-insensitive) in the target directory and its subdirectories.
+- **Organized Output**: Saves all generated `.docx` files into a `word/` subdirectory within the target directory.
+- **Smart Naming**: Files named `index.md` or `_index.md` are automatically named after their parent directory instead of "index".
+- **Custom Font**: Applies "Poppins" as the main font for the generated Word documents.
